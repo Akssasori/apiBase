@@ -1,0 +1,33 @@
+server:
+  port: 1234
+
+spring:
+  application:
+    name: cache-redis
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/redis?serverTimeZone=UTC&useSSL=false
+    username: root
+    password: coti
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: update
+    show_sql: true
+  output:
+    ansi:
+      enabled: Always
+
+logging:
+  level:
+    com.ead: TRACE
+    root: INFO
+    org.springframework.web: DEBUG
+    org.hibernate: INFO
+
+spring-doc:
+  swagger-ui:
+    path: /swagger-ui.html
+management:
+  server:
+    port: 1234
