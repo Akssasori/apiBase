@@ -2,7 +2,8 @@ package com.redis.cache.controller;
 
 import com.redis.cache.dto.StudentRequestDTO;
 import com.redis.cache.model.Student;
-import com.redis.cache.repository.StudentRepository;
+import com.redis.cache.service.interfaces.StudentService;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,22 +12,26 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class StudentController {
 
-    private final StudentRepository studentRepository;
+    private final StudentService studentService;
 
-    public StudentController(StudentRepository studentRepository) {
-        this.studentRepository = studentRepository;
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
     }
 
     @PostMapping(value= "create", consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
     ResponseEntity createStudent(@RequestBody StudentRequestDTO studentRequestDTO) {
 
         var student = new Student();
         student.setEmail(studentRequestDTO.getEmail());
         student.setName(studentRequestDTO.getName());
 
-        studentRepository.save(student);
+        studentService.save(student);
 
         return ResponseEntity.ok().body(student);
+    }
+
+    @GetMapping(value = "findAll")
+    ResponseEntity findAll() {
+        return ResponseEntity.ok().body(studentService.findAll());
     }
 }

@@ -17,6 +17,16 @@ spring:
   output:
     ansi:
       enabled: Always
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    password: coti
+    timeout: 60000
+  cache:
+    type: redis
+#    cache-names: student
+#      time-to-live: 60000
 
 logging:
   level:
