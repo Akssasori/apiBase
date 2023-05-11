@@ -26,7 +26,8 @@ spring:
   cache:
     type: redis
 #    cache-names: student
-#      time-to-live: 60000
+    redis:
+      time-to-live: 20_000
 
 logging:
   level:
