@@ -26,7 +26,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    @Cacheable("findAll")
+    @Cacheable(value = "findAll")
     public List<Student> findAll() {
         System.out.println("sem cache");
         return (List<Student>) studentRepository.findAll();
