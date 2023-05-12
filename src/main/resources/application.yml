@@ -17,17 +17,18 @@ spring:
   output:
     ansi:
       enabled: Always
-  redis:
-    database: 0
-    host: localhost
-    port: 6379
-    password: coti
-    timeout: 60000
+  data:
+    redis:
+      database: 0
+      host: localhost
+      port: 6379
+      password: coti
+      timeout: 60000
   cache:
     type: redis
 #    cache-names: student
     redis:
-      time-to-live: 20_000
+      time-to-live: 60_000
 
 logging:
   level:
@@ -39,6 +40,3 @@ logging:
 spring-doc:
   swagger-ui:
     path: /swagger-ui.html
-management:
-  server:
-    port: 1234

@@ -34,4 +34,10 @@ public class StudentController {
     ResponseEntity findAll() {
         return ResponseEntity.ok().body(studentService.findAll());
     }
+
+    @GetMapping(value = "{id}")
+    ResponseEntity byId(@PathVariable Long id) {
+        Student student = studentService.getById(id);
+        return ResponseEntity.ok().body(student);
+    }
 }

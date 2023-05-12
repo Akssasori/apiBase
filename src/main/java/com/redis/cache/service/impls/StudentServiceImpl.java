@@ -4,8 +4,8 @@ import com.redis.cache.model.Student;
 import com.redis.cache.repository.StudentRepository;
 import com.redis.cache.service.interfaces.StudentService;
 import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,8 +15,11 @@ public class StudentServiceImpl implements StudentService {
 
     private final StudentRepository studentRepository;
 
-    public StudentServiceImpl(StudentRepository studentRepository) {
+    private final RedisTemplate template;
+
+    public StudentServiceImpl(StudentRepository studentRepository, RedisTemplate template) {
         this.studentRepository = studentRepository;
+        this.template = template;
     }
 
     @Override
@@ -31,4 +34,12 @@ public class StudentServiceImpl implements StudentService {
         System.out.println("sem cache");
         return (List<Student>) studentRepository.findAll();
     }
+
+    @Override
+    public Student getById(Long id) {
+        var value = template.opsForHash().values("findAll::SimpleKey []");
+        System.out.println(value);
+        return (Student) value;
+    }
+
 }
