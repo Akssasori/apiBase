@@ -1,6 +1,7 @@
 package com.redis.cache.service.interfaces;
 
 import com.redis.cache.model.Student;
+import com.redis.cache.model.StudentRedis;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ public interface StudentService {
 
     List<Student> findAll();
 
-    Student getById(Long id);
+    StudentRedis getById(Long id);
 
 
 }
