@@ -1,42 +1,9 @@
 server:
-  port: 1234
+  port: 5566
 
 spring:
   application:
-    name: cache-redis
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3307/redis?serverTimeZone=UTC&useSSL=false
-    username: root
-    password: coti
-  jpa:
-    generate-ddl: false
-    hibernate:
-      ddl-auto: update
-    show_sql: true
+    name: dtoview
   output:
     ansi:
-      enabled: Always
-  data:
-    redis:
-      database: 0
-      host: localhost
-      port: 6379
-      password: coti
-      timeout: 60000
-  cache:
-    type: redis
-#    cache-names: student
-    redis:
-      time-to-live: 120_000
-
-logging:
-  level:
-    com.ead: TRACE
-    root: INFO
-    org.springframework.web: DEBUG
-    org.hibernate: INFO
-
-spring-doc:
-  swagger-ui:
-    path: /swagger-ui.html
+      enabled: ALWAYS

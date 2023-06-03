@@ -13,8 +13,8 @@ public class SwaggerConfig implements WebMvcConfigurer {
     @Bean
     public OpenAPI usersMicroserviceOpenAPI() {
         return new OpenAPI().info(
-                new Info().title("Redis")
-                        .description("Use cache with Redis")
+                new Info().title("DtoView")
+                        .description("DTO")
                         .version("1.0"));
     }
 
