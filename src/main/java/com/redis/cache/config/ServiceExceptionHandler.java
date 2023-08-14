@@ -1,10 +1,8 @@
 package com.redis.cache.config;
 
 import com.redis.cache.dto.ErrorResponseDTO;
-import com.redis.cache.exceptions.BusinessException;
 import com.redis.cache.exceptions.TesteException;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.connector.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -16,7 +14,7 @@ import java.time.LocalDateTime;
 
 @Slf4j
 @RestControllerAdvice
-public class ServiceExceptionHandlwe extends ResponseEntityExceptionHandler {
+public class ServiceExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(TesteException.class)
     public final ResponseEntity<ErrorResponseDTO> handleResponseException(Exception ex, WebRequest request) {
@@ -25,6 +23,7 @@ public class ServiceExceptionHandlwe extends ResponseEntityExceptionHandler {
                 .date(LocalDateTime.now())
                 .message(ex.getMessage())
                 .build();
+        System.out.println("****request****" + request);
         return new ResponseEntity<>(responseDTO,HttpStatus.CONFLICT);
 
 

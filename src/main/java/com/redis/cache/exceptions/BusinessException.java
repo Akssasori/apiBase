@@ -9,7 +9,7 @@ public class BusinessException extends CustomException {
     }
 
     public BusinessException(final String msgError) {
-        super(msgError, ErrorMessageEnum.ERROR_BUSINESS);
+        super(msgError, ErrorMessageEnum.ERROR_INTERNAL);
     }
 
     public BusinessException(final ErrorMessageEnum errorMessageEnum, final Object... args) {

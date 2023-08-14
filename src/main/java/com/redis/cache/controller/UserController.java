@@ -24,7 +24,7 @@ public class UserController {
 
         log.info(userDTO);
         if (userDTO.getEmail().equalsIgnoreCase("LUCAS")) {
-            throw new BusinessException("Teste", ErrorMessageEnum.ERROR_ADD_STATIONS_TO_CREATIVE);
+            throw new BusinessException("Teste"+ ErrorMessageEnum.ERROR_INTERNAL.getMessageKey());
         }
         if (userDTO.getEmail().equalsIgnoreCase("ANA")) {
             throw new TesteException("teste");
