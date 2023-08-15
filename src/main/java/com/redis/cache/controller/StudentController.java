@@ -2,9 +2,7 @@ package com.redis.cache.controller;
 
 import com.redis.cache.dto.StudentRequestDTO;
 import com.redis.cache.model.Student;
-import com.redis.cache.model.StudentRedis;
 import com.redis.cache.service.interfaces.StudentService;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,9 +34,4 @@ public class StudentController {
         return ResponseEntity.ok().body(studentService.findAll());
     }
 
-    @GetMapping(value = "{id}")
-    ResponseEntity byId(@PathVariable Long id) {
-        StudentRedis student = studentService.getById(id);
-        return ResponseEntity.ok().body(student);
-    }
 }

@@ -9,3 +9,6 @@
 # @CacheEvict
 #### Esta anotação é usada para remover os dados do cache.
 #### se tivessemos um delete usariamos nele para remover os dados do cache
+
+# H2
+#### http://localhost:1234/h2-console/ << para abrir a interface

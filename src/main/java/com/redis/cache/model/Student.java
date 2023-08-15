@@ -13,7 +13,6 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "student")
-//@RedisHash("Student")
 public class Student implements Serializable {
 
     @Id
