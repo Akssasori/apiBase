@@ -2,8 +2,7 @@ package com.redis.cache.controller;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.redis.cache.dto.UserDTO;
-import com.redis.cache.exceptions.BusinessException;
-import com.redis.cache.exceptions.TesteException;
+import com.redis.cache.exceptions.CustomException;
 import com.redis.cache.exceptions.enums.ErrorMessageEnum;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;
@@ -24,11 +23,10 @@ public class UserController {
 
         log.info(userDTO);
         if (userDTO.getEmail().equalsIgnoreCase("LUCAS")) {
-            throw new BusinessException("Teste"+ ErrorMessageEnum.ERROR_INTERNAL.getMessageKey());
+            throw new CustomException("Error: "+ ErrorMessageEnum.ERROR_INTERNAL.getMessageKey());
         }
         if (userDTO.getEmail().equalsIgnoreCase("ANA")) {
-            throw new TesteException("teste");
-//            throw new Exception("teste");
+            throw new CustomException("teste");
         }
 
         return ResponseEntity.ok().body(userDTO);
