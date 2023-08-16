@@ -16,7 +16,6 @@ import java.io.Serializable;
 public class Student implements Serializable {
 
     @Id
-    @Indexed
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
