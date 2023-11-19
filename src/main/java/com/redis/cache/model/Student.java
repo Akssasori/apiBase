@@ -1,5 +1,6 @@
 package com.redis.cache.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,7 +13,8 @@ import org.springframework.data.redis.core.index.Indexed;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "student")
+@Table(name = "students")
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Student implements Serializable {
 
     @Id
