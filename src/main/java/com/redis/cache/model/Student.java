@@ -5,8 +5,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import org.springframework.data.redis.core.RedisHash;
-import org.springframework.data.redis.core.index.Indexed;
 
 
 import java.io.Serializable;
