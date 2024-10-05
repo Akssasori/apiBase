@@ -21,6 +21,12 @@ spring:
   output:
     ansi:
       enabled: Always
+  rabbitmq:
+    host:
+    virtual-host:
+    port:
+    username:
+    password:
 
 spring-doc:
   swagger-ui:
