@@ -22,11 +22,11 @@ spring:
     ansi:
       enabled: Always
   rabbitmq:
-    host:
+    host: 'localhost'
     virtual-host:
-    port:
-    username:
-    password:
+    port: 5672
+    username: guest
+    password: guest
 
 spring-doc:
   swagger-ui:
