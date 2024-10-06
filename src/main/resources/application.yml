@@ -28,6 +28,21 @@ spring:
     username: guest
     password: guest
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+rabbit:
+  config:
+    exchange: "my_exchenge"
+    routing: "my_routing_key"
+    queue: "my_queue"
+
 spring-doc:
   swagger-ui:
     path: /swagger-ui.html

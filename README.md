@@ -1,14 +1,9 @@
-# @CachePut 
-#### Esta anotação é usada para atualizar o cache. 
-#### Vamos utilizar no create para salvar no banco e salvar também no cache assim o atualizando
-
-# @Cacheable
-#### Esta anotação indica que o resultado da chamada de um método pode ser armazenado em cache.
-#### Vamos utilizar no get para salvar o resultado no cache
-
-# @CacheEvict
-#### Esta anotação é usada para remover os dados do cache.
-#### se tivessemos um delete usariamos nele para remover os dados do cache
+# RabbitMQ
+para acessar o rabbitMq acesse http://localhost:15672/
 
 # H2
-#### http://localhost:1234/h2-console/ << para abrir a interface
+para acessar o banco de dados http://localhost:1234/h2-console aonde 1234 é a porta da aplicação
+na JDBC URL fique atento para usar igual esta no seu aplicatio.yml jdbc:h2:mem:testdb
+
+# Docker
+docker compose up -d, verifique o que esta sendo criado no docker 
