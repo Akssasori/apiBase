@@ -1,6 +1,6 @@
 package com.redis.cache.producer;
 
-import com.redis.cache.dto.StudentRequestDTO;
+import com.redis.cache.dto.TransactionDTO;
 import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProducerService {
 
-    @Value("${rabbit.config.exchange}")
-    private String exchenge;
+    @Value("${rabbit.config.exchange.shopping}")
+    private String exchange;
 
-    @Value("${rabbit.config.routing}")
+    @Value("${rabbit.config.routing.shopping}")
     private String routing_key;
 
     private final RabbitTemplate rabbitTemplate;
@@ -21,9 +21,10 @@ public class ProducerService {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    public String sendMensage(StudentRequestDTO studentRequestDTO) {
+    public String sendMensage(TransactionDTO transactionDTO) {
         try {
-            rabbitTemplate.convertAndSend(exchenge,routing_key,studentRequestDTO);
+
+            rabbitTemplate.convertAndSend(exchange,routing_key,transactionDTO);
         } catch (AmqpException e) {
             throw new RuntimeException(e);
         }

@@ -13,11 +13,9 @@ import org.springframework.web.bind.annotation.*;
 public class StudentController {
 
     private final StudentService studentService;
-    private final ProducerService producerService;
 
-    public StudentController(StudentService studentService, ProducerService producerService) {
+    public StudentController(StudentService studentService) {
         this.studentService = studentService;
-        this.producerService = producerService;
     }
 
     @PostMapping(value= "create", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -33,12 +31,6 @@ public class StudentController {
     @GetMapping(value = "findAll")
     ResponseEntity<?> findAll() {
         return ResponseEntity.ok().body(studentService.findAll());
-    }
-
-
-    @PostMapping(value = "sendBroker")
-    ResponseEntity<?> sendBroker(@RequestBody StudentRequestDTO studentRequestDTO) {
-        return ResponseEntity.ok().body(producerService.sendMensage(studentRequestDTO));
     }
 
 }

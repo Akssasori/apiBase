@@ -39,9 +39,16 @@ management:
 
 rabbit:
   config:
-    exchange: "my_exchenge"
-    routing: "my_routing_key"
-    queue: "my_queue"
+    exchange:
+      shopping: "ex_compras"
+      sales: "ex_vendas"
+    routing:
+      shopping: "router_compras"
+      sales: "router_vendas"
+    queue:
+      shopping: "queue_compras"
+      sales: "queue_vendas"
+      audit: "queue_auditoria"
 
 spring-doc:
   swagger-ui:
