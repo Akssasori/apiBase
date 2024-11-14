@@ -22,7 +22,6 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public List<Student> findAll() {
-        System.out.println("sem cache");
         return (List<Student>) studentRepository.findAll();
     }
 
